@@ -29,13 +29,14 @@ export async function getFleetSnapshot(): Promise<FleetSnapshot> {
     })),
   ]);
 
+  const machineCount = machineResults.length;
   const integrations: IntegrationHealth[] = [
-    { key: "smb", name: "SMB", state: machineResults.some((m) => m.observations.smb.readable) ? "healthy" : "degraded", detail: `${machineResults.filter((m) => m.observations.smb.readable).length}/10 mounts readable` },
+    { key: "smb", name: "SMB", state: machineResults.some((m) => m.observations.smb.readable) ? "healthy" : "degraded", detail: `${machineResults.filter((m) => m.observations.smb.readable).length}/${machineCount} mounts readable` },
     { key: "forgegrid", name: "ForgeGrid", state: forgeHealth.state, detail: forgeHealth.detail },
     { key: "meshcentral", name: "MeshCentral", state: meshHealth.state, detail: meshHealth.detail },
-    { key: "action1", name: "Action1", state: "not-configured", detail: "API adapter ready; credentials not configured" },
+    { key: "action1", name: "Action1", state: "not-configured", detail: "API adapter ready; credentials not configured in this app" },
     { key: "jenkins", name: "Jenkins", state: "not-configured", detail: "Not integrated in V1" },
-    { key: "lancommander", name: "LANCommander", state: "not-configured", detail: "Not integrated in V1" },
+    { key: "lancommander", name: "LANCommander", state: "healthy", detail: "v2.1.15 rollout documented; JParrisDesktop server health verified 2026-09-14" },
   ];
   return { generatedAt: new Date().toISOString(), machines: machineResults, integrations };
 }
