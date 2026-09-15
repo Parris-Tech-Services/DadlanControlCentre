@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getFleetSnapshot } from "@/lib/fleet";
-import type { IntegrationObservation, MachineSnapshot, StorageObservation } from "@/lib/types";
+import type { IntegrationObservation, MachineSnapshot } from "@/lib/types";
 
 function formatBytes(bytes?: number) {
   if (bytes === undefined) return "Unknown";
@@ -24,8 +24,9 @@ export default async function Home() {
   const fleet = await getFleetSnapshot();
   const readable = fleet.machines.filter((machine) => machine.observations.smb.readable).length;
   const meshOnline = fleet.machines.filter((machine) => machine.observations.meshcentral.state === "online").length;
+  const machineCount = fleet.machines.length;
   return <main><header className="topbar"><div className="brand-mark">D</div><div><p className="eyebrow">DADLAN / CONTROL PLANE</p><h1>DadLAN Control Centre</h1></div><div className="topbar-meta"><span className="live-pill"><Dot state="online" />Live snapshot</span><time>{new Date(fleet.generatedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</time></div></header>
-    <section className="hero"><div><p className="eyebrow">Fleet overview</p><h2>Ten machines.<br /><em>One view.</em></h2><p className="hero-copy">A quiet operations layer for files, compute, and remote control across DadLAN.</p></div><div className="reachability"><span className="reach-number">{readable}<small>/10</small></span><span>filesystem mounts<br /><strong>readable now</strong></span><div className="reach-bar"><i style={{ width: `${readable * 10}%` }} /></div></div></section>
+    <section className="hero"><div><p className="eyebrow">Fleet overview</p><h2>{machineCount} Windows machines.<br /><em>One view.</em></h2><p className="hero-copy">A quiet operations layer for files, compute, remote control, LANCommander and DadLAN fleet readiness.</p><Link className="back-link" href="/rollout">September 2026 rollout & optimisation →</Link></div><div className="reachability"><span className="reach-number">{readable}<small>/{machineCount}</small></span><span>filesystem mounts<br /><strong>readable now</strong></span><div className="reach-bar"><i style={{ width: `${machineCount ? (readable / machineCount) * 100 : 0}%` }} /></div></div></section>
     <section className="health-strip"><div className="section-kicker"><span className="section-index">01</span><div><p className="eyebrow">Integration health</p><h2>Systems at a glance</h2></div></div><div className="health-list">{fleet.integrations.map((integration) => <div className="health-item" key={integration.key}><span className={`health-icon health-${integration.state}`}><Dot state={integration.state} /></span><div><strong>{integration.name}</strong><span>{integration.detail}</span></div></div>)}</div></section>
     <section className="fleet-section"><div className="section-kicker"><span className="section-index">02</span><div><p className="eyebrow">Machine registry</p><h2>DadLAN fleet <span>{meshOnline ? `${meshOnline} MeshCentral online` : "Live signals separated by source"}</span></h2></div></div><div className="machine-grid">{fleet.machines.map((machine) => <Card key={machine.id} machine={machine} />)}</div></section>
     <footer><span>DadLAN Control Centre V1</span><span>Server-side integrations / no destructive actions</span></footer>
