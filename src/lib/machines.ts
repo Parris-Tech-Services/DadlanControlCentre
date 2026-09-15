@@ -11,6 +11,8 @@ export const machines: Machine[] = [
   ["laptop08", "Laptop08", "DESKTOP-6VO4N54", "Toshiba Satellite C50D-A"],
   ["laptop09", "Laptop09", "DESKTOP-43NG4PS", "Compaq Presario CQ56"],
   ["laptop10", "Laptop10", "DESKTOP-MMR0H5N", "Compaq 610"],
+  ["laptop11", "Laptop11", "DESKTOP-CD1U980", "HP ProBook (#11)"],
+  ["jparrisdesktop", "JParrisDesktop", "JPARRISDESKTOP", "DadLAN LANCommander server / gaming desktop"],
 ].map(([id, name, hostname, model]) => ({
   id,
   name,
