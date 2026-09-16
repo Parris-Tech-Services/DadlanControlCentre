@@ -9,9 +9,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <script
-          src="https://cdn.jsdelivr.net/gh/joshualparris/JoshHub@7b6ec3907b27924dbe1d64c9ece4e439e6de8de7/public/podcast-dock.js"
+          src="https://cdn.jsdelivr.net/gh/joshualparris/JoshHub@ebb0d17495c92d3ce09df1fd1bdb5d4c2056914d/public/podcast-launcher-v3.js"
           data-topics="homelab"
           data-label="🎧 Listen to a different homelab podcast"
+          data-launcher-label="🎧 Podcasts"
           defer
         />
       </body>
