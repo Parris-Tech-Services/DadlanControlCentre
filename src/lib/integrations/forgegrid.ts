@@ -10,12 +10,29 @@ async function readJson<T>(name: string): Promise<T | undefined> {
   try { return JSON.parse(await readFile(`${dataPath}/${name}`, "utf8")) as T; } catch { return undefined; }
 }
 
+function workerMatchesMachine(worker: Worker, machine: Machine): boolean {
+  if (!worker.node_name) return false;
+  const nodeName = worker.node_name.toLowerCase();
+  return nodeName === machine.hostname.toLowerCase() || nodeName.includes(machine.name.toLowerCase());
+}
+
+function findWorker(workers: Record<string, Worker>, machine: Machine): Worker | undefined {
+  return Object.values(workers).find((worker) => workerMatchesMachine(worker, machine));
+}
+
+function workerObservation(worker: Worker): IntegrationObservation {
+  if (worker.status === "online") {
+    return { state: "online", label: "Worker online", observedAt: worker.last_seen, detail: worker.node_name };
+  }
+  return { state: "offline", label: "Worker offline", observedAt: worker.last_seen, detail: worker.node_name };
+}
+
 export async function readForgeGridObservations(machine: Machine): Promise<IntegrationObservation> {
   const workers = await readJson<Record<string, Worker>>("workers.json");
   if (!workers) return { state: "unavailable", label: "Unavailable", observedAt: new Date().toISOString(), detail: "ForgeGrid state is not readable" };
-  const match = Object.values(workers).find((worker) => worker.node_name?.toLowerCase() === machine.hostname.toLowerCase() || worker.node_name?.toLowerCase().includes(machine.name.toLowerCase()));
+  const match = findWorker(workers, machine);
   if (!match) return { state: "unknown", label: "Unknown", observedAt: new Date().toISOString(), detail: "No worker identity matches this hostname" };
-  return { state: match.status === "online" ? "online" : "offline", label: match.status === "online" ? "Worker online" : "Worker offline", observedAt: match.last_seen, detail: match.node_name };
+  return workerObservation(match);
 }
 
 export async function readForgeGridHealth(): Promise<{ state: "healthy" | "degraded" | "unavailable"; detail: string }> {

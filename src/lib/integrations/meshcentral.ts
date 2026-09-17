@@ -5,6 +5,9 @@ import type { IntegrationObservation, Machine } from "../types";
 const meshUrl = process.env.MESHCENTRAL_URL || "https://10.245.173.178:1025";
 const dataPath = process.env.MESHCENTRAL_DATA_PATH || "/home/josh/dev/6 Laptops/Mesh/meshcentral-data";
 
+type MeshRecord = { type?: string; name?: string; rname?: string; host?: string; ip?: string; time?: number };
+type MeshObservation = IntegrationObservation & { consoleUrl?: string };
+
 function checkConsole(): Promise<boolean> {
   return new Promise((resolve) => {
     const request = https.get(meshUrl, { rejectUnauthorized: false, timeout: 2500 }, (response) => { response.resume(); resolve((response.statusCode || 500) < 500); });
@@ -13,19 +16,43 @@ function checkConsole(): Promise<boolean> {
   });
 }
 
-async function nodes() {
+async function nodes(): Promise<MeshRecord[]> {
   try {
     const lines = (await readFile(`${dataPath}/meshcentral.db`, "utf8")).split(/\r?\n/).filter(Boolean);
-    return lines.map((line) => JSON.parse(line) as { type?: string; name?: string; rname?: string; host?: string; ip?: string; time?: number }).filter((row) => row.type === "node");
-  } catch { return []; }
+    return lines.map((line) => JSON.parse(line) as MeshRecord).filter((row) => row.type === "node");
+  } catch {
+    return [];
+  }
 }
 
-export async function readMeshObservation(machine: Machine): Promise<IntegrationObservation & { consoleUrl?: string }> {
+function findMeshRecord(records: MeshRecord[], hostname: string): MeshRecord | undefined {
+  return records.find((record) => record.name === hostname || record.rname === hostname);
+}
+
+function unavailableObservation(known: boolean, observedAt: string): MeshObservation {
+  if (known) {
+    return { state: "unavailable", label: "Unavailable", observedAt, detail: "Known in MeshCentral; console unavailable", consoleUrl: meshUrl };
+  }
+  return { state: "unavailable", label: "Unavailable", observedAt, detail: "MeshCentral console unavailable", consoleUrl: meshUrl };
+}
+
+function knownObservation(record: MeshRecord, observedAt: string): MeshObservation {
+  if (record.host) {
+    return { state: "online", label: "Known", observedAt, detail: `Known device at ${record.host}; live state requires console confirmation`, consoleUrl: meshUrl };
+  }
+  return { state: "online", label: "Known", observedAt, detail: "Known device; live state requires console confirmation", consoleUrl: meshUrl };
+}
+
+export function classifyMeshObservation(reachable: boolean, records: MeshRecord[], machine: Machine, observedAt = new Date().toISOString()): MeshObservation {
+  const known = findMeshRecord(records, machine.hostname);
+  if (!reachable) return unavailableObservation(Boolean(known), observedAt);
+  if (!known) return { state: "unknown", label: "Not enrolled", observedAt, detail: "No matching device record", consoleUrl: meshUrl };
+  return knownObservation(known, observedAt);
+}
+
+export async function readMeshObservation(machine: Machine): Promise<MeshObservation> {
   const [reachable, records] = await Promise.all([checkConsole(), nodes()]);
-  const known = records.find((record) => [record.name, record.rname].includes(machine.hostname));
-  if (!reachable) return { state: "unavailable", label: "Unavailable", observedAt: new Date().toISOString(), detail: known ? "Known in MeshCentral; console unavailable" : "MeshCentral console unavailable", consoleUrl: meshUrl };
-  if (!known) return { state: "unknown", label: "Not enrolled", observedAt: new Date().toISOString(), detail: "No matching device record", consoleUrl: meshUrl };
-  return { state: "online", label: "Known", observedAt: new Date().toISOString(), detail: `Known device${known.host ? ` at ${known.host}` : ""}; live state requires console confirmation`, consoleUrl: meshUrl };
+  return classifyMeshObservation(reachable, records, machine);
 }
 
 export async function readMeshHealth() {

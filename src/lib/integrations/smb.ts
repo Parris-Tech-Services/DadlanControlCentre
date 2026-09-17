@@ -7,7 +7,9 @@ import type { Machine, StorageObservation } from "../types";
 const execFileAsync = promisify(execFile);
 const statfsAsync = promisify(statfs);
 
-async function mountInfo(path: string) {
+type MountInfo = { fstype?: string; source?: string };
+
+async function mountInfo(path: string): Promise<MountInfo | undefined> {
   try {
     const { stdout } = await execFileAsync("findmnt", ["-T", path, "-n", "-o", "FSTYPE,SOURCE"], { timeout: 2500 });
     const [fstype, source] = stdout.trim().split(/\s+/, 2);
@@ -17,10 +19,20 @@ async function mountInfo(path: string) {
   }
 }
 
+function isCifsMount(mount: MountInfo | undefined): mount is MountInfo {
+  if (!mount) return false;
+  return mount.fstype === "cifs";
+}
+
+function readFailureDetail(error: unknown): string {
+  if (error instanceof Error) return error.message;
+  return "Read check failed";
+}
+
 export async function readSmbObservation(machine: Machine): Promise<StorageObservation> {
   const observedAt = new Date().toISOString();
   const mount = await mountInfo(machine.mountPath);
-  if (!mount || mount.fstype !== "cifs") {
+  if (!isCifsMount(mount)) {
     return { state: "unmounted", label: "Not mounted", observedAt, readable: false, detail: "No CIFS mount detected" };
   }
 
@@ -42,6 +54,6 @@ export async function readSmbObservation(machine: Machine): Promise<StorageObser
       detail: "CIFS mount is readable",
     };
   } catch (error) {
-    return { state: "mounted", label: "Mounted, unreadable", observedAt, readable: false, source: mount.source, detail: error instanceof Error ? error.message : "Read check failed" };
+    return { state: "mounted", label: "Mounted, unreadable", observedAt, readable: false, source: mount.source, detail: readFailureDetail(error) };
   }
 }

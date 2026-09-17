@@ -18,7 +18,51 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - name: Enforce CRAP below 30
+        run: |
+          python -m pip install 'lizard>=1.24.0,<2'
+          python <<'PY'
+          from pathlib import Path
+          import lizard
+
+          extensions = {'.c', '.cc', '.cpp', '.cxx', '.h', '.hpp', '.cs', '.go', '.java', '.js', '.jsx', '.php', '.py', '.rb', '.rs', '.swift', '.ts', '.tsx', '.vue'}
+          excluded = {'.git', 'node_modules', 'vendor', 'dist', 'build', 'target', '.venv', 'venv', 'coverage', '.next', '.cache', '__pycache__'}
+          scores = []
+
+          for path in Path('.').rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in extensions:
+                  continue
+              if any(part in excluded for part in path.parts[:-1]):
+                  continue
+              try:
+                  result = lizard.analyze_file(str(path))
+              except Exception:
+                  continue
+              for function in getattr(result, 'function_list', []) or []:
+                  complexity = int(getattr(function, 'cyclomatic_complexity', 1) or 1)
+                  crap = complexity * complexity + complexity
+                  scores.append((crap, complexity, path.as_posix(), int(getattr(function, 'start_line', 1) or 1), str(getattr(function, 'long_name', None) or getattr(function, 'name', '<anonymous>'))))
+
+          scores.sort(reverse=True)
+          if not scores:
+              raise SystemExit('No functions were found for the CRAP gate')
+
+          worst = scores[0]
+          print(f'CRAP_GATE_MAX={worst[0]:.2f} CC={worst[1]} {worst[2]}:{worst[3]} {worst[4]}')
+          print('Top CRAP functions:')
+          for crap, complexity, path, line, name in scores[:10]:
+              print(f'  {crap:.2f}  CC={complexity}  {path}:{line}  {name}')
+
+          offenders = [item for item in scores if item[0] >= 30]
+          if offenders:
+              print('CRAP gate failed: every function must be below 30.')
+              raise SystemExit(1)
+          print('CRAP gate passed: every function is below 30.')
+          PY

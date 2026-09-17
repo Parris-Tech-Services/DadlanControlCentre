@@ -6,10 +6,13 @@ import { readMeshHealth, readMeshObservation } from "./integrations/meshcentral"
 import { action1Observation } from "./integrations/action1";
 
 function safe<T>(work: () => Promise<T>, fallback: T): Promise<T> { return work().catch(() => fallback); }
+function noLiveSignalIsUnknown(smb: MachineSnapshot["observations"]["smb"], mesh: IntegrationObservation) {
+  return smb.state === "unmounted" && mesh.state === "unavailable";
+}
 function derived(smb: MachineSnapshot["observations"]["smb"], mesh: IntegrationObservation) {
   if (mesh.state === "online") return { state: "reachable" as const, label: "Reachable" };
   if (smb.readable) return { state: "partially-reachable" as const, label: "Filesystem reachable" };
-  if (smb.state === "unmounted" && mesh.state === "unavailable") return { state: "unknown" as const, label: "Unknown" };
+  if (noLiveSignalIsUnknown(smb, mesh)) return { state: "unknown" as const, label: "Unknown" };
   return { state: "unreachable" as const, label: "No live signal" };
 }
 

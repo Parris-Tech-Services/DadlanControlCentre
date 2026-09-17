@@ -2,11 +2,17 @@ import Link from "next/link";
 import { getFleetSnapshot } from "@/lib/fleet";
 import type { IntegrationObservation, MachineSnapshot } from "@/lib/types";
 
+function bytePrecision(value: number, unit: number) {
+  if (unit === 0) return 0;
+  if (value >= 10) return 0;
+  return 1;
+}
 function formatBytes(bytes?: number) {
   if (bytes === undefined) return "Unknown";
-  const units = ["B", "KB", "MB", "GB", "TB"]; let value = bytes; let unit = 0;
-  while (value >= 1024 && unit < units.length - 1) { value /= 1024; unit++; }
-  return `${value.toFixed(value >= 10 || unit === 0 ? 0 : 1)} ${units[unit]}`;
+  const units = ["B", "KB", "MB", "GB", "TB"];
+  const unit = Math.min(Math.floor(Math.log(Math.max(bytes, 1)) / Math.log(1024)), units.length - 1);
+  const value = bytes / (1024 ** unit);
+  return `${value.toFixed(bytePrecision(value, unit))} ${units[unit]}`;
 }
 function Dot({ state }: { state: string }) { return <span className={`dot dot-${state}`} aria-hidden="true" />; }
 function Signal({ label, observation }: { label: string; observation: IntegrationObservation }) { return <div className="signal"><span>{label}</span><strong><Dot state={observation.state} />{observation.label}</strong></div>; }
