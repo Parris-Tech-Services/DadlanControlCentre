@@ -12,7 +12,18 @@ The fleet-wide crap4all audit recorded DadlanControlCentre at **42.00**. The wor
 
 Because an uncovered CC5 function scores exactly 30, the work targeted both the CC6 hotspot and nearby branch-heavy CC5 candidates rather than stopping after one extraction.
 
-## Changes
+## Files changed
+
+- `src/lib/integrations/meshcentral.ts`
+- `src/lib/integrations/meshcentral.test.ts` (new)
+- `src/lib/fleet.ts`
+- `src/lib/integrations/forgegrid.ts`
+- `src/lib/integrations/smb.ts`
+- `src/app/page.tsx`
+- `.github/workflows/ci.yml`
+- `docs/CRAP-REDUCTION-2026-09-17.md` (new)
+
+## What changed
 
 1. Split MeshCentral device lookup and observation construction into small pure helpers. `readMeshObservation` now delegates classification instead of containing all branches itself.
 2. Added deterministic unit tests for reachable/unreachable, enrolled/not-enrolled and `rname` matching MeshCentral cases.
@@ -27,6 +38,24 @@ Because an uncovered CC5 function scores exactly 30, the work targeted both the 
 
 The changes are refactors rather than feature changes. MeshCentral still reports the same externally visible states and details for known devices, unknown devices and console outages. ForgeGrid, SMB and fleet-derived reachability retain their existing state rules.
 
-## Verification
+## After
 
-The final measured CRAP score and CI run are recorded after the first post-refactor CI execution. The permanent CRAP gate makes the threshold a regression check rather than a one-off audit.
+GitHub Actions run **35217880371** on commit `aa5f85a60e1023c755d2f7b1e57dbc557dca3bd7` verified:
+
+- TypeScript typecheck: **passed**
+- Vitest: **8/8 tests passed** across 4 test files
+- Next.js 16.3.1 production build: **passed**
+- CRAP gate: **passed**
+- Repository maximum CRAP: **20.00**
+- Maximum cyclomatic complexity: **4**
+- Worst functions at the new ceiling: `readForgeGridHealth` and `derived`
+
+With unavailable coverage still conservatively treated as 0%, the new ceiling is:
+
+`CRAP = 4² × (1 - 0)³ + 4 = 20`
+
+That is a reduction from **42 → 20**, or about **52.4%**.
+
+## Regression protection
+
+The CRAP check is now part of normal `main` and pull-request CI. Any future function that reaches CRAP **30 or higher** causes the CI job to fail, preventing this repository from silently drifting back above the requested threshold.
