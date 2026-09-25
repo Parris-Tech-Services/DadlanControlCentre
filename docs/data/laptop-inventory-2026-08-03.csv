@@ -1,0 +1,9 @@
+Model / identifier,CPU,RAM,SSD or HDD,Hard drive size,Confidence
+"Acer Aspire 3 – Model N20C5 (Unit 1)","Unknown","Unknown","Unknown","Unknown","Needs verification"
+"ASUS A541U","Intel Core i5 (exact model unknown)","Unknown","HDD or SSD","Unknown","Partial"
+"Lenovo ThinkPad T61 – Type 6457-BP2","Intel Core 2 Duo (exact model not confirmed)","Unknown","HDD originally; current drive unknown","Unknown","Partial"
+"Toshiba Satellite L50-A – PSKLEA-00M001","Intel Core i5-3337U","4 GB DDR3","HDD","750 GB","Confirmed factory specification"
+"Acer Aspire 3 – Model N20C5 (NB_DAIMLER_TECH-03)","Intel Pentium Silver (exact model unknown)","Unknown","Unknown","Unknown","Partial"
+"HP ProBook 450 G5 – NB-PARTS-10 / HSN-Q07C","8th Gen Intel Core i5 (exact model unknown)","Unknown","HDD or SSD","Unknown","Partial"
+"ASUS Vivobook Go 15 – E510KA-EH230W","Intel Pentium Silver N6000","Unknown (family supports multiple configs)","SSD or eMMC; exact configuration unknown","Unknown","CPU confirmed; storage/RAM need verification"
+"Lenovo C260 all-in-one – Machine Type 10160","Intel Celeron J1800","4 GB","HDD","500 GB","Confirmed from physical device label"
