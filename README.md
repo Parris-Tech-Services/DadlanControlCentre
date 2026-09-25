@@ -21,6 +21,7 @@ The current operational snapshot is visible in the app at `/rollout` and documen
 - [Windows fleet optimisation — 14 Sep 2026](docs/FLEET-OPTIMISATION-2026-09-14.md)
 - [SSD evidence reconstruction — 25 Sep 2026](docs/SSD-EVIDENCE-2026-09-25.md)
 - [SSD inventory chat transcript — 25 Sep 2026](docs/SSD-CHAT-TRANSCRIPT-2026-09-25.md)
+- [SSD upgrade source chat — 16 Sep 2026](docs/SSD-UPGRADE-SOURCE-CHAT-2026-09-16.md)
 - [Fleet hardware / RAM / upgrade chat transcript — 24–25 Sep 2026](docs/FLEET-HARDWARE-RAM-UPGRADES-CHAT-2026-09-24-25.md)
 - [DadLAN RAM / SSD / gaming capability chat — 17–25 Sep 2026](docs/DADLAN-RAM-SSD-GAMING-CHAT-2026-09-17-25.md)
 
