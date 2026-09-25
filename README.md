@@ -21,6 +21,7 @@ The current operational snapshot is visible in the app at `/rollout` and documen
 - [Windows fleet optimisation — 14 Sep 2026](docs/FLEET-OPTIMISATION-2026-09-14.md)
 - [SSD evidence reconstruction — 25 Sep 2026](docs/SSD-EVIDENCE-2026-09-25.md)
 - [SSD inventory chat transcript — 25 Sep 2026](docs/SSD-CHAT-TRANSCRIPT-2026-09-25.md)
+- [Fleet hardware / RAM / upgrade chat transcript — 24–25 Sep 2026](docs/FLEET-HARDWARE-RAM-UPGRADES-CHAT-2026-09-24-25.md)
 
 Highlights include the v2.1.15 server rollout, #03/#07 subnet repair, ForgeGrid manual-only policy, performance cleanup, LCX staging state, Laptop #10 x64 remediation path, legacy `kb.dadlan.au` HTTP 500 diagnosis, and the still-open Teeworlds visible-launch canary.
 
