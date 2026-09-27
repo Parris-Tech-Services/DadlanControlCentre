@@ -1,1 +1,275 @@
-[]
+[
+  {
+    "id": "3dQMr1Ph6peGLoxHIKyHDr",
+    "title": "AI Homelab Hardware: What You Actually Need",
+    "show": "Domesticating AI",
+    "tags": [
+      "local-ai",
+      "hardware"
+    ],
+    "duration": "40 min",
+    "audio": "https://anchor.fm/s/10e4970b4/podcast/play/122455797/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-7-11%2F429644948-44100-2-fa3bcbe3f1e46.m4a"
+  },
+  {
+    "id": "01JEAZBBllRV8UY4AWAFTi",
+    "title": "The Home Server / Synology Show",
+    "show": "Syntax",
+    "tags": [
+      "server",
+      "backup",
+      "docker"
+    ],
+    "duration": "35 min",
+    "audio": "https://traffic.megaphone.fm/FSI2592102992.mp3"
+  },
+  {
+    "id": "4XSYnXz7PBckQYPnhxgxDX",
+    "title": "Starting a Self-Hosting Server Revolution",
+    "show": "Value Stack",
+    "tags": [
+      "self-hosting",
+      "server"
+    ],
+    "duration": "2 h 15",
+    "audio": "https://anchor.fm/s/5572a7b8/podcast/play/81952541/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2024-0-29%2F365438973-44100-2-3ce40b41b54ee.mp3"
+  },
+  {
+    "id": "1Gr2Q9JkCNjD6HxitFYfD1",
+    "title": "Why Is Homelab Hardware So Expensive in 2026?",
+    "show": "SysAdmin Weekly",
+    "tags": [
+      "hardware",
+      "homelab"
+    ],
+    "duration": "1 h 12",
+    "audio": "https://anchor.fm/s/103d2a0ec/podcast/play/122632463/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-6-10%2F427687567-44100-2-361ab8ec625b2.m4a"
+  },
+  {
+    "id": "3i7IEYSTJnOuFvej97bATm",
+    "title": "The State of Homelab Tech (2026)",
+    "show": "The Changelog",
+    "tags": [
+      "homelab",
+      "proxmox",
+      "ai"
+    ],
+    "duration": "2 h 2",
+    "audio": "https://op3.dev/e/https://pscrb.fm/rss/p/https://cdn.changelog.com/uploads/friends/125/changelog--friends-125.mp3"
+  },
+  {
+    "id": "0VlmehKlQS9r2sq7R0qUDr",
+    "title": "Alex's Backups Disaster",
+    "show": "Self-Hosted",
+    "tags": [
+      "backup",
+      "server"
+    ],
+    "duration": "1 h 10",
+    "audio": "https://aphid.fireside.fm/d/1437767933/7296e34a-2697-479a-adfb-ad32329dd0b0/6cb4523e-4ff3-4315-a810-93c83910129a.mp3"
+  },
+  {
+    "id": "1sHMmU9UuLXEDCsoOpgV06",
+    "title": "Ryzen Upgrades and a TrueNAS Franken-NAS",
+    "show": "Linux Out Loud",
+    "tags": [
+      "hardware",
+      "truenas"
+    ],
+    "duration": "55 min"
+  },
+  {
+    "id": "4nFISTIrEXZjOo66G9z9bx",
+    "title": "Coming Home to Self-Hosted Fun",
+    "show": "Linux Out Loud",
+    "tags": [
+      "self-hosting",
+      "linux"
+    ],
+    "duration": "46 min",
+    "audio": "https://aphid.fireside.fm/d/1437767933/c276bc2c-a595-4dc0-8b72-dae8357d6dec/02446278-729c-4cb1-a890-f7849dc8c18e.mp3"
+  },
+  {
+    "id": "5wJBYriNBDgQKCPZsxZgOt",
+    "title": "Self-Host Before You're Toast",
+    "show": "LINUX Unplugged",
+    "tags": [
+      "self-hosting",
+      "privacy"
+    ],
+    "duration": "1 h 21",
+    "audio": "https://dts.podtrac.com/redirect.mp3/mgln.ai/e/211/rss.art19.com/episodes/bad2e4a0-cd0c-49a3-bf1d-4439f8455530.mp3"
+  },
+  {
+    "id": "2OPCSLwCqu8D3RTCKRDfvM",
+    "title": "Tailscale: WireGuard, Zero Trust and Securing AI",
+    "show": "Heavy Networking",
+    "tags": [
+      "tailscale",
+      "networking",
+      "security"
+    ],
+    "duration": "57 min",
+    "audio": "https://feeds.packetpushers.net/link/12486/17354931/HN830.mp3"
+  },
+  {
+    "id": "32p57oa1wNJXMlgVQOP2rP",
+    "title": "Old Hardware, New Penguins",
+    "show": "Linux Out Loud",
+    "tags": [
+      "linux",
+      "hardware"
+    ],
+    "duration": "57 min",
+    "audio": "https://aphid.fireside.fm/d/1437767933/c276bc2c-a595-4dc0-8b72-dae8357d6dec/5abfde92-8f17-49d8-832d-216a75aeb224.mp3"
+  },
+  {
+    "id": "42BNAKuRvn5HBphXskGzrp",
+    "title": "AI, n8n and LLM Vision in the Homelab",
+    "show": "The DAM Software Podcast",
+    "tags": [
+      "local-ai",
+      "automation"
+    ],
+    "duration": "1 h 2"
+  },
+  {
+    "id": "5RPCttopuwf2LrklKASkVp",
+    "title": "AI Agents for Home Assistant",
+    "show": "Home Gadget Geeks",
+    "tags": [
+      "local-ai",
+      "home-assistant"
+    ],
+    "duration": "1 h 27",
+    "audio": "http://media.blubrry.com/hometech/theaverageguy.tv/audio/HomeGadgetGeeks680F.mp3"
+  },
+  {
+    "id": "0nXjdInVhNQJsAEaqeYGf2",
+    "title": "Local AI in the Smart Home",
+    "show": "TechTumult",
+    "tags": [
+      "local-ai",
+      "self-hosting"
+    ],
+    "duration": "1 h 6"
+  },
+  {
+    "id": "2kc9sl9D3IYJiILLt16m3C",
+    "title": "Do You Need a Home Lab?",
+    "show": "The Linux Cast",
+    "tags": [
+      "homelab",
+      "linux"
+    ],
+    "duration": "1 h 35",
+    "audio": "https://aphid.fireside.fm/d/1437767933/ae328e48-d61d-425d-bd02-a620d555c202/684f4ea4-5b31-4796-bc9c-d92ece498110.mp3"
+  },
+  {
+    "id": "08rQRQ2AxTBozBu8T1qMKD",
+    "title": "Networking for AI in 2026",
+    "show": "The Art of Network Engineering",
+    "tags": [
+      "networking",
+      "ai"
+    ],
+    "duration": "44 min"
+  },
+  {
+    "id": "1qpzcttDgLsQxzMgUvbhXK",
+    "title": "Claude Code + Ollama: Local AI Agent",
+    "show": "The AI Firehose",
+    "tags": [
+      "ollama",
+      "local-ai"
+    ],
+    "duration": "9 min",
+    "audio": "https://anchor.fm/s/1121e1b18/podcast/play/121273658/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-10%2F425867360-44100-2-9c381e5c0fc96.mp3"
+  },
+  {
+    "id": "0qZPcxQj1KkTlswpSuZPIy",
+    "title": "Something New, Something Old",
+    "show": "LINUX Unplugged",
+    "tags": [
+      "linux",
+      "hardware"
+    ],
+    "duration": "1 h 10",
+    "audio": "https://dts.podtrac.com/redirect.mp3/mgln.ai/e/211/rss.art19.com/episodes/e8317153-fe2a-4bb9-b37b-6567c092f632.mp3"
+  },
+  {
+    "id": "2vQQl3Pv6szuXfz6KkIKcl",
+    "title": "--yolo",
+    "show": "LINUX Unplugged",
+    "tags": [
+      "linux",
+      "home-automation"
+    ],
+    "duration": "1 h 17",
+    "audio": "https://dts.podtrac.com/redirect.mp3/mgln.ai/e/211/rss.art19.com/episodes/887ad1e3-bf6e-46e7-8c5d-7a9458ff7ab7.mp3"
+  },
+  {
+    "id": "5vqVkFFPclXUKrCuV8TvWh",
+    "title": "LM Studio + Hermes Local AI Agents",
+    "show": "The AI Firehose",
+    "tags": [
+      "local-ai",
+      "lm-studio"
+    ],
+    "duration": "7 min",
+    "audio": "https://anchor.fm/s/1121e1b18/podcast/play/121245267/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2026-5-9%2F425829431-44100-2-4f8b880e00bfb.mp3"
+  },
+  {
+    "id": "5C6SCUEikB2JXxkVbhT8uM",
+    "title": "Hybrid Cloud Show: Homelab Updates",
+    "show": "Late Night Linux",
+    "tags": [
+      "proxmox",
+      "kubernetes"
+    ],
+    "duration": "30 min"
+  },
+  {
+    "id": "1Am6J56grx0bMpGfAijI1C",
+    "title": "Running Local LLMs with Ollama",
+    "show": "The Real Python Podcast",
+    "tags": [
+      "ollama",
+      "local-ai"
+    ],
+    "duration": "45 min",
+    "audio": "https://dts.podtrac.com/redirect.mp3/files.realpython.com/podcasts/RPP_E284_03_PyCoders.65310fe4e34e.mp3"
+  },
+  {
+    "id": "2wNdMSNVkVP7e0iwMeUl3y",
+    "title": "Home Assistant 2026.3",
+    "show": "Home Assistant Podcast",
+    "tags": [
+      "home-assistant",
+      "proxmox"
+    ],
+    "duration": "56 min",
+    "audio": "https://pdst.fm/e/pscrb.fm/rss/p/audio4.redcircle.com/episodes/016de174-3b2b-4f55-a993-3a73f66b6eb6/stream.mp3"
+  },
+  {
+    "id": "1Huz7fy7axxOqjXei1HLI0",
+    "title": "On-Prem AI with Ollama",
+    "show": "SysAdmin Weekly",
+    "tags": [
+      "ollama",
+      "local-ai"
+    ],
+    "duration": "1 h 2",
+    "audio": "https://anchor.fm/s/103d2a0ec/podcast/play/109099903/https%3A%2F%2Fd3ctxlq1ktw2nl.cloudfront.net%2Fstaging%2F2025-9-2%2Fec953b65-a99e-c7fe-89db-d51809d149fd.mp3"
+  },
+  {
+    "id": "48MfVSv0KEERo4SityrV5G",
+    "title": "Local LLMs",
+    "show": "Up Against Reality",
+    "tags": [
+      "local-ai",
+      "hardware"
+    ],
+    "duration": "37 min",
+    "audio": "https://media.blubrry.com/1475083/upagainstreality.com/wp/wp-content/uploads/2026/06/060926-UAR-E138-Local_LLMs.mp3"
+  }
+]
