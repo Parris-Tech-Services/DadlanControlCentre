@@ -25,7 +25,8 @@ The current operational snapshot is visible in the app at `/rollout` and documen
 - [Fleet hardware / RAM / upgrade chat transcript — 24–25 Sep 2026](docs/FLEET-HARDWARE-RAM-UPGRADES-CHAT-2026-09-24-25.md)
 - [DadLAN RAM / SSD / gaming capability chat — 17–25 Sep 2026](docs/DADLAN-RAM-SSD-GAMING-CHAT-2026-09-17-25.md)
 - [Laptop inventory conversation — 3 Aug 2026](docs/LAPTOP-INVENTORY-CONVERSATION-2026-08-03.md)
-- [Laptop inventory CSV — 3 Aug 2026](docs/data/laptop-inventory-2026-08-03.csv)
+- [Laptop inventory CSV — started 3 Aug 2026, HP ProBook 450 G5 verified 9 Oct](docs/data/laptop-inventory-2026-08-03.csv)
+- [HP ProBook 450 G5 — 9 Oct repair and hardware confirmation](docs/HP-PROBOOK-450-G5-2026-10-09.md)
 
 Highlights include the v2.1.15 server rollout, #03/#07 subnet repair, ForgeGrid manual-only policy, performance cleanup, LCX staging state, Laptop #10 x64 remediation path, legacy `kb.dadlan.au` HTTP 500 diagnosis, and the still-open Teeworlds visible-launch canary.
 
