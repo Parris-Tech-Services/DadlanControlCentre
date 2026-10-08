@@ -25,10 +25,13 @@ The current operational snapshot is visible in the app at `/rollout` and documen
 - [Fleet hardware / RAM / upgrade chat transcript — 24–25 Sep 2026](docs/FLEET-HARDWARE-RAM-UPGRADES-CHAT-2026-09-24-25.md)
 - [DadLAN RAM / SSD / gaming capability chat — 17–25 Sep 2026](docs/DADLAN-RAM-SSD-GAMING-CHAT-2026-09-17-25.md)
 - [Laptop inventory conversation — 3 Aug 2026](docs/LAPTOP-INVENTORY-CONVERSATION-2026-08-03.md)
-- [Laptop inventory CSV — started 3 Aug 2026, HP ProBook 450 G5 verified 9 Oct](docs/data/laptop-inventory-2026-08-03.csv)
+- [Full DadLAN hardware inventory — 27 records (20 laptops + 7 desktop/AIO), reconciled 9 Oct 2026](docs/data/laptop-inventory-2026-08-03.csv)
+- [Inventory reconciliation, source evidence, uncertainty and known gaps — 9 Oct 2026](docs/DADLAN-INVENTORY-RECONCILIATION-2026-10-09.md)
 - [HP ProBook 450 G5 — 9 Oct repair and hardware confirmation](docs/HP-PROBOOK-450-G5-2026-10-09.md)
 
 Highlights include the v2.1.15 server rollout, #03/#07 subnet repair, ForgeGrid manual-only policy, performance cleanup, LCX staging state, Laptop #10 x64 remediation path, legacy `kb.dadlan.au` HTTP 500 diagnosis, and the still-open Teeworlds visible-launch canary.
+
+The full CSV is a **historical working catalogue** spanning the 12 actively configured DadLAN Windows clients and additional photographed/repair machines. It is not a live Action1 inventory or a physical stocktake. The original CSV filename is retained for existing links; see the reconciliation note for evidence and unresolved duplicate identities.
 
 ## Development
 
