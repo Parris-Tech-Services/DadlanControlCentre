@@ -142,6 +142,13 @@ Windows IoT LTSC **Camera app was not installed**; this was an absent optional a
 
 User opened Bluetooth settings and said pairing **seemed to work on the Windows side**, but the **Android phone reported "Couldn't connect"**. This is **PARTIAL / INCONCLUSIVE** for functional Bluetooth: a phone may pair with a PC yet not establish an always-connected Bluetooth service, so the phone's message does not alone prove faulty hardware. **No successful Bluetooth data transfer, audio output, or connected peripheral demonstrated yet**. Recommended next check: launch `fsquirt.exe` on Windows, choose **Receive files**, then send a small photo from Android via Bluetooth; record actual successful receipt or exact error. Do **not** mark Bluetooth end-to-end PASS yet.
 
+
+## Bluetooth Android-to-ProBook transfer PASS — 9 October 2026
+
+Following the earlier Android "Couldn't connect" message, user ran the advised Windows `fsquirt.exe` **Receive files** Bluetooth workflow, sent a photo from Android and explicitly reported **"yep that worked"**. **Bluetooth file transfer confirmed by user — PASS for Android to ProBook file reception**. This resolves the earlier incomplete functional transfer check. No separate Bluetooth headset audio, mouse peripheral, or laptop-to-phone transfer was shown; don't mark those distinct workflows as tested.
+
+User also supplied a photo showing Windows Task Manager at **CPU 5% / 3.37 GHz**, **RAM 2.5/7.9 GB (32%)**, **SSD Disk 0 at 1%**, **GPU 0 at 0%**. These are isolated low-load readings, not a CPU temperature or sustained gaming stress test.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
@@ -155,7 +162,7 @@ User opened Bluetooth settings and said pairing **seemed to work on the Windows 
 | Internal microphone live input meter | **PASS — user confirmed it responds while speaking**; recording quality untested |
 | Screen, keyboard, touchpad, hinges, headphone jack and ports | PHYSICAL FUNCTION NOT TESTED |
 | Webcam browser live preview | **PASS — visible live image confirmed by user**; recording not tested |
-| Bluetooth with Android | **INCONCLUSIVE** — Windows pairing appeared successful; phone said "Couldn't connect"; no functional transfer yet |
+| Bluetooth receive-file transfer from Android | **PASS — user confirmed receiving a photo with fsquirt.exe**; other Bluetooth uses not tested |
 | Actual Ethernet cable/link | NOT TESTED |
 | 45–60 minute gaming stability and sensor logs | NOT TESTED |
 
