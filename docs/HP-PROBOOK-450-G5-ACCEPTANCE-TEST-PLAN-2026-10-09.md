@@ -95,11 +95,24 @@ The user shared a ZIP named `Fix flashing charger light.zip` containing **both B
 - Monitor started **11:34:05** with requested 15-minute runtime; ZIP includes only records at **11:34:05** (CPU 2%; SSD 17°C; battery 91%) and **11:34:22** (CPU 25%; SSD 18°C; battery 91%). Monitor `report.txt` contains only header/start instructions, **no completion**. The ZIP may have been made while monitoring was still in progress; do not infer program failure or completion. No HWiNFO Sensors CSV/logged CPU thermals in ZIP.
 - Next evidence required: full `Monitor-20261009-113405\gaming-samples.csv` and final `report.txt` after monitor completes, plus HWiNFO **Sensors-only logging CSV** captured while actually playing a game. If testing v2 event collector, replace on-disk script and verify it contains the new `# Never access .Message here` comment before re-running baseline.
 
+
+## Completed 15-minute PowerShell monitor — 9 October 2026, 11:34–11:50 (computer local time)
+
+The user subsequently supplied **complete** `gaming-samples.csv` and `report(1).txt` from `Monitor-20261009-113405`, superseding the earlier partial two-row ZIP snapshot.
+
+- **61 samples** spanning **969.4 seconds (16 min 9 sec)** from 11:34:05 to 11:50:14 (about 16.16 seconds/sample); final script reported **Finished: 11:50:15**. The monitor **completed its scheduled run**.
+- CPU WMI utilisation: **60 valid points and one blank**. Average **4.37%**, median **3.5%**, maximum **25%**. **55 of 60 valid CPU readings were ≤10%**, so the run mostly captured *very light CPU load*, not evidence of gaming stress. CPU WMI clock field stayed 1600 MHz but **is not a reliable measure of effective clocks or thermal throttling**.
+- SSD Windows sensor: range **15–47°C**; first sample 17°C, final 45°C, maximum 47°C at several times. Counter `Wear=0` throughout. No problematic SSD temperature observed in these readings; **not a sustained I/O benchmark**.
+- Reported battery percentage increased **91% → 95%**. Good evidence that it continued charging during the session, **not** definitive proof the previously damaged charger pin is reliable over time.
+- Monitor's Windows event-log collection again reported `System event query unavailable/no matching events: The description string for parameter reference (%1) could not be found`. **Event log assessment incomplete, not clean**. The laptop may still be running the old test script; version has not been verified on that system.
+- No HWiNFO **Sensors-only CSV** or in-game FPS/title/use confirmation was supplied. **Actual CPU package temperature, thermal throttling and long-session game stability remain untested.** The absence of visible failures during a light-activity monitoring window is not a gaming stability pass.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
 | --- | --- |
 | Repaired connector safety under repeated use | NOT TESTED |
+| Basic 15-minute WMI/SSD/battery monitor | **COMPLETED** — 61 samples, light CPU load; Windows event export failed |
 | CPU temperature / thermal throttling in gaming | NOT TESTED |
 | NVMe SMART health, endurance and media-error summary | **REPORTED by HWiNFO** (98% health, 0 media errors, 549 unsafe shutdowns); extended error log not checked |
 | SSD controlled copy/hash workload | NOT TESTED |
