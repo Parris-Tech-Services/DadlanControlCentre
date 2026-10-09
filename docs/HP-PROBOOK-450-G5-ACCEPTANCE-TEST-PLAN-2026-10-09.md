@@ -132,6 +132,11 @@ User uploaded `ProBook-Peripheral-Tests.txt`, produced by the offered **read-onl
 
 After opening Windows Sound settings with `Start-Process "ms-settings:sound"`, the user explicitly confirmed **the input-level meter moves while speaking**. Mark **internal Conexant ISST microphone live input: PASS (user-observed)**. This demonstrates incoming audio signal, beyond mere PnP detection. **A recorded/playback sample, voice intelligibility and microphone quality are not yet verified.** Headphone jack remains untested.
 
+
+## Webcam live-preview check — 9 October 2026
+
+Windows IoT LTSC **Camera app was not installed**; this was an absent optional application, **not** a camera-hardware failure. User ran a locally created browser page calling `navigator.mediaDevices.getUserMedia({video:true,audio:false})`, permitted access, and **explicitly confirmed a live picture appears**. **HP HD Camera browser webcam live preview PASS (user-observed).** This proves current webcam video capture/preview is operational with this browser. **Saving a recording, video/audio synchronisation, image quality and long-duration camera stability have not been tested.** The test page was local and not intended to upload footage.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
@@ -144,7 +149,8 @@ After opening Windows Sound settings with `Start-Process "ms-settings:sound"`, t
 | Peripheral PnP enumeration and driver status | **COMPLETED** — devices reported OK, no present-only status errors; not physical function |
 | Internal microphone live input meter | **PASS — user confirmed it responds while speaking**; recording quality untested |
 | Screen, keyboard, touchpad, hinges, headphone jack and ports | PHYSICAL FUNCTION NOT TESTED |
-| Actual webcam, Bluetooth and Ethernet use | NOT TESTED |
+| Webcam browser live preview | **PASS — visible live image confirmed by user**; recording not tested |
+| Actual Bluetooth pairing and Ethernet link | NOT TESTED |
 | 45–60 minute gaming stability and sensor logs | NOT TESTED |
 
 Update statuses only from new user-supplied results, not just because a script or checklist has been provided.
