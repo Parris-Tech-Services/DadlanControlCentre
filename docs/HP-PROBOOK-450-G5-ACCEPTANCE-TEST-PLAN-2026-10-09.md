@@ -149,6 +149,18 @@ Following the earlier Android "Couldn't connect" message, user ran the advised W
 
 User also supplied a photo showing Windows Task Manager at **CPU 5% / 3.37 GHz**, **RAM 2.5/7.9 GB (32%)**, **SSD Disk 0 at 1%**, **GPU 0 at 0%**. These are isolated low-load readings, not a CPU temperature or sustained gaming stress test.
 
+
+## Physical USB flash-drive check — 9 October 2026
+
+User replied **"yep its fine"** to request to test USB flash-drive detection and access in **each USB port**. PowerShell `Get-CimInstance Win32_DiskDrive | Where-Object InterfaceType -eq 'USB'` enumerated:
+- Model: **Lexar USB Flash Drive USB Device**
+- Status: **OK**
+- Size: **4,005,711,360 bytes (~4 GB)**
+
+**Result: PASS (user-reported USB ports work; USB mass-storage enumeration corroborated).** The user indicated the port checks worked; the supplied PowerShell snapshot independently proves a connected Lexar device was enumerated as OK, but it does **not individually enumerate every port and does not establish file read/write or transfer throughput for each socket**. If a port-specific problem arises later, record exact affected physical socket.
+
+**Do not confuse this ~4 GB Lexar flash drive with previously catalogued ~16 GB Lexar Ventoy USB #8**. Neither drive's serial has been verified from this output. USB-C/HDMI/card reader functions remain untested unless specifically user-confirmed.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
@@ -160,7 +172,8 @@ User also supplied a photo showing Windows Task Manager at **CPU 5% / 3.37 GHz**
 | SSD controlled copy/hash workload | NOT TESTED |
 | Peripheral PnP enumeration and driver status | **COMPLETED** — devices reported OK, no present-only status errors; not physical function |
 | Internal microphone live input meter | **PASS — user confirmed it responds while speaking**; recording quality untested |
-| Screen, keyboard, touchpad, hinges, headphone jack and ports | PHYSICAL FUNCTION NOT TESTED |
+| USB flash drive / physical USB sockets | **PASS — user reports ports work**; ~4 GB Lexar USB drive enumerated OK; individual read/write throughput unverified |
+| Screen, keyboard, touchpad, hinges, headphone jack, HDMI and other ports | PHYSICAL FUNCTION NOT TESTED |
 | Webcam browser live preview | **PASS — visible live image confirmed by user**; recording not tested |
 | Bluetooth receive-file transfer from Android | **PASS — user confirmed receiving a photo with fsquirt.exe**; other Bluetooth uses not tested |
 | Actual Ethernet cable/link | NOT TESTED |
