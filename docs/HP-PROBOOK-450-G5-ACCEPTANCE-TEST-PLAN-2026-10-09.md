@@ -161,6 +161,11 @@ User replied **"yep its fine"** to request to test USB flash-drive detection and
 
 **Do not confuse this ~4 GB Lexar flash drive with previously catalogued ~16 GB Lexar Ventoy USB #8**. Neither drive's serial has been verified from this output. USB-C/HDMI/card reader functions remain untested unless specifically user-confirmed.
 
+
+## Keyboard and touchpad function confirmed — 9 October 2026
+
+User opened Notepad as directed and replied **"yes they work fine"** to checking typing, arrow keys, Backspace, Enter and Shift, plus touchpad clicking, right-clicking and scrolling. **PASS (user-observed) for basic keyboard typing/navigation and touchpad clicks/scrolling.** This is a functional check beyond PnP enumeration. It does **not** prove every individual key, Fn combinations, all multi-touch gestures or long-term reliability has been comprehensively tested.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
@@ -173,7 +178,8 @@ User replied **"yep its fine"** to request to test USB flash-drive detection and
 | Peripheral PnP enumeration and driver status | **COMPLETED** — devices reported OK, no present-only status errors; not physical function |
 | Internal microphone live input meter | **PASS — user confirmed it responds while speaking**; recording quality untested |
 | USB flash drive / physical USB sockets | **PASS — user reports ports work**; ~4 GB Lexar USB drive enumerated OK; individual read/write throughput unverified |
-| Screen, keyboard, touchpad, hinges, headphone jack, HDMI and other ports | PHYSICAL FUNCTION NOT TESTED |
+| Keyboard and touchpad basic functions | **PASS — user confirmed typing, navigation, clicks and scrolling work** |
+| Screen, hinges, headphone jack, HDMI and other ports | PHYSICAL FUNCTION NOT TESTED |
 | Webcam browser live preview | **PASS — visible live image confirmed by user**; recording not tested |
 | Bluetooth receive-file transfer from Android | **PASS — user confirmed receiving a photo with fsquirt.exe**; other Bluetooth uses not tested |
 | Actual Ethernet cable/link | NOT TESTED |
