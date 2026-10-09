@@ -107,12 +107,15 @@ The user subsequently supplied **complete** `gaming-samples.csv` and `report(1).
 - Monitor's Windows event-log collection again reported `System event query unavailable/no matching events: The description string for parameter reference (%1) could not be found`. **Event log assessment incomplete, not clean**. The laptop may still be running the old test script; version has not been verified on that system.
 - No HWiNFO **Sensors-only CSV** or in-game FPS/title/use confirmation was supplied. **Actual CPU package temperature, thermal throttling and long-session game stability remain untested.** The absence of visible failures during a light-activity monitoring window is not a gaming stability pass.
 
+
+**User clarification (9 October 2026):** The laptop was **sitting idle at work** during the entire monitoring session; **no games were played**. Classify this as a **completed 15-minute idle/background-use observation only**, not a gaming workload. Actual in-game performance, CPU temperatures, thermal throttling and 45–60 minute gaming stability remain **NOT TESTED**. Defer gaming test until convenient; avoid presuming user can play during work hours.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
 | --- | --- |
 | Repaired connector safety under repeated use | NOT TESTED |
-| Basic 15-minute WMI/SSD/battery monitor | **COMPLETED** — 61 samples, light CPU load; Windows event export failed |
+| **15-minute idle baseline** (no game running) | **COMPLETED** — 61 samples, normal low CPU load; Windows event export failed |
 | CPU temperature / thermal throttling in gaming | NOT TESTED |
 | NVMe SMART health, endurance and media-error summary | **REPORTED by HWiNFO** (98% health, 0 media errors, 549 unsafe shutdowns); extended error log not checked |
 | SSD controlled copy/hash workload | NOT TESTED |
