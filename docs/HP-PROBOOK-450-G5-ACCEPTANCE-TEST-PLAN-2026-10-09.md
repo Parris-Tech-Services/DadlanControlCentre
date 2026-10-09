@@ -127,6 +127,11 @@ User uploaded `ProBook-Peripheral-Tests.txt`, produced by the offered **read-onl
 
 **Result:** Peripheral detection inventory captured successfully; **zero physical port tests, camera recordings, mic recordings, Bluetooth pairings or Ethernet-cable validations have been demonstrated by this upload.** Keep manual/functional checks open.
 
+
+## Internal microphone functional check — 9 October 2026
+
+After opening Windows Sound settings with `Start-Process "ms-settings:sound"`, the user explicitly confirmed **the input-level meter moves while speaking**. Mark **internal Conexant ISST microphone live input: PASS (user-observed)**. This demonstrates incoming audio signal, beyond mere PnP detection. **A recorded/playback sample, voice intelligibility and microphone quality are not yet verified.** Headphone jack remains untested.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
@@ -137,7 +142,8 @@ User uploaded `ProBook-Peripheral-Tests.txt`, produced by the offered **read-onl
 | NVMe SMART health, endurance and media-error summary | **REPORTED by HWiNFO** (98% health, 0 media errors, 549 unsafe shutdowns); extended error log not checked |
 | SSD controlled copy/hash workload | NOT TESTED |
 | Peripheral PnP enumeration and driver status | **COMPLETED** — devices reported OK, no present-only status errors; not physical function |
-| Screen, keyboard, touchpad, hinges, mic, headphones and ports | PHYSICAL FUNCTION NOT TESTED |
+| Internal microphone live input meter | **PASS — user confirmed it responds while speaking**; recording quality untested |
+| Screen, keyboard, touchpad, hinges, headphone jack and ports | PHYSICAL FUNCTION NOT TESTED |
 | Actual webcam, Bluetooth and Ethernet use | NOT TESTED |
 | 45–60 minute gaming stability and sensor logs | NOT TESTED |
 
