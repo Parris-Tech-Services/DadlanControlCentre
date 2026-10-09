@@ -1,6 +1,6 @@
 # HP ProBook 450 G5 — DadLAN acceptance test plan (9 October 2026)
 
-**Status: baseline captured; detailed HWiNFO NVMe SMART data obtained; physical, actual CPU-temperature and extended stability tests NOT yet completed.** This document distinguishes confirmed earlier reports from proposed real-world verification. A four-file ZIP test kit was created in the 9 October 2026 ChatGPT conversation: `ProBook450G5-Tests.ps1`, `Manual-Checklist.md`, `Screen-Colour-Test.html` and `README.md`. The script is **not** assumed to have run or been installed on the ProBook. Download the chat attachment to run it locally; do not claim remote execution.
+**Status: baseline captured; detailed HWiNFO NVMe SMART data obtained; physical, actual CPU-temperature and extended stability tests NOT yet completed.** This document distinguishes confirmed earlier reports from proposed real-world verification. A four-file ZIP test kit was created in the 9 October 2026 ChatGPT conversation: `ProBook450G5-Tests.ps1`, `Manual-Checklist.md`, `Screen-Colour-Test.html` and `README.md`. The user **ran the Baseline mode on the actual ProBook** and uploaded its output; Monitor and Storage have not been evidenced. The first script's Windows event-log collection failed because one provider's message description was malformed. A **v2 corrected ZIP** was generated in ChatGPT with event metadata export and fallback; this revised script **has not yet been tested on the user's laptop**. No remote execution is claimed.
 
 ## First returned test files — 9 October 2026, 11:11–11:14 reported local timestamps
 
@@ -83,7 +83,7 @@ The optional PowerShell test kit generated in ChatGPT has three explicitly selec
 - `-Mode Monitor -Minutes 45`: read-only logging of CPU WMI utilisation/current clock, SSD temperature and battery level at intervals, followed by Windows system error export.
 - `-Mode Storage -SizeMB 1024`: explicit local write/copy/hash test, then cleanup of only temporary files created by the script.
 
-All outputs stay in the user’s **Desktop\DadLAN-ProBook450G5-Tests** dated subfolders; nothing automatically uploads to GitHub or any cloud service. Sensor temperature/throttling metrics require separately logged HWiNFO data. Review local logs for names, file paths, serials and other private values before sharing with ChatGPT. **Never upload unreviewed diagnostic logs to this public repository.** Script is written for Windows PowerShell 5.1 but **has not been executed on the user's Windows machine**; run carefully and report errors.
+All outputs stay in the user’s **Desktop\DadLAN-ProBook450G5-Tests** dated subfolders; nothing automatically uploads to GitHub or any cloud service. Sensor temperature/throttling metrics require separately logged HWiNFO data. Review local logs for names, file paths, serials and other private values before sharing with ChatGPT. **Never upload unreviewed diagnostic logs to this public repository.** Script is written for Windows PowerShell 5.1. **Version 1 Baseline executed on the user's Windows laptop** and identified an event-log export issue; **version 2 event-log collector is a locally produced untested correction**. Run carefully, report errors and do not infer clean event logs from an export failure.
 
 ## Acceptance record (not yet passed)
 
