@@ -85,6 +85,16 @@ The optional PowerShell test kit generated in ChatGPT has three explicitly selec
 
 All outputs stay in the user’s **Desktop\DadLAN-ProBook450G5-Tests** dated subfolders; nothing automatically uploads to GitHub or any cloud service. Sensor temperature/throttling metrics require separately logged HWiNFO data. Review local logs for names, file paths, serials and other private values before sharing with ChatGPT. **Never upload unreviewed diagnostic logs to this public repository.** Script is written for Windows PowerShell 5.1. **Version 1 Baseline executed on the user's Windows laptop** and identified an event-log export issue; **version 2 event-log collector is a locally produced untested correction**. Run carefully, report errors and do not infer clean event logs from an export failure.
 
+
+## Partial ZIP return — 9 October 2026, 11:33–11:34 (computer-local reported time)
+
+The user shared a ZIP named `Fix flashing charger light.zip` containing **both Baseline snapshots** (11:14 and 11:33), a **Monitor folder containing only two CSV rows**, earlier HWiNFO/battery HTML, older Windows summary and unrelated desktop shortcut/URL items. Shortcuts were **not executed**. No 15-minute completion or actual game-running evidence is included.
+
+- Second Baseline completed at **11:33:59**; at 11:33:54 CPU WMI load **18%**, SSD reported **17°C**, battery **91%**. All core hardware IDs still consistent with prior record.
+- **The 11:33 Baseline still reports the original event error** `System event query unavailable/no matching events: The description string for parameter reference (%1) could not be found`. This exact wording belongs to the **v1** script in the originally provided ZIP; v2's revised implementation would use `Event collection FAILED`, `Event export FAILED`, or `System critical/error event records`/fallback messages. **Most likely the script run at C:\\DadLAN-ProBook450G5-Test-Kit\\ProBook450G5-Tests.ps1 was the earlier version despite the user having received v2**. We cannot confirm installation without inspecting that actual file on the laptop. Do not claim the v2 fix passed or that event logs were clean.
+- Monitor started **11:34:05** with requested 15-minute runtime; ZIP includes only records at **11:34:05** (CPU 2%; SSD 17°C; battery 91%) and **11:34:22** (CPU 25%; SSD 18°C; battery 91%). Monitor `report.txt` contains only header/start instructions, **no completion**. The ZIP may have been made while monitoring was still in progress; do not infer program failure or completion. No HWiNFO Sensors CSV/logged CPU thermals in ZIP.
+- Next evidence required: full `Monitor-20261009-113405\gaming-samples.csv` and final `report.txt` after monitor completes, plus HWiNFO **Sensors-only logging CSV** captured while actually playing a game. If testing v2 event collector, replace on-disk script and verify it contains the new `# Never access .Message here` comment before re-running baseline.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
