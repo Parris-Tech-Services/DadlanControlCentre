@@ -110,6 +110,23 @@ The user subsequently supplied **complete** `gaming-samples.csv` and `report(1).
 
 **User clarification (9 October 2026):** The laptop was **sitting idle at work** during the entire monitoring session; **no games were played**. Classify this as a **completed 15-minute idle/background-use observation only**, not a gaming workload. Actual in-game performance, CPU temperatures, thermal throttling and 45–60 minute gaming stability remain **NOT TESTED**. Defer gaming test until convenient; avoid presuming user can play during work hours.
 
+
+## PowerShell peripheral enumeration — 9 October 2026 at 12:15:48 (computer-local time)
+
+User uploaded `ProBook-Peripheral-Tests.txt`, produced by the offered **read-only peripheral inventory script**. It is **device enumeration, not an end-to-end functional test**.
+
+- **HP HD Camera** enumerated `OK`; real video capture and recording untested.
+- **Intel(R) Wireless Bluetooth(R)** enumerated `OK`; actual pairing, audio/data transfer untested.
+- **Intel USB 3.0 eXtensible Host Controller**, `USB Composite Device`, and `USB Root Hub (USB 3.0)` all enumerated `OK`; **no USB storage listed/connected** in the sample. Each physical USB socket still needs direct testing.
+- **Internal Microphone (Conexant ISST Audio)** and **Speakers (Conexant ISST Audio)** separately enumerate `OK`; Conexant ISST Audio and Intel Display Audio hardware each `OK`. User previously confirmed basic speaker playback; mic recording, headphone socket and reliable operation remain untested.
+- Keyboard returns two `Enhanced (101- or 102-key)` device entries, both `OK`; **not evidence of a second physical keyboard or that all keys were tested**.
+- Pointing devices listed as `Synaptics HID ClickPad`, `PS/2 Compatible Mouse`, `USB Input Device`, all `OK`; tap, click, scroll, gestures not specifically tested.
+- Intel UHD Graphics 620 driver **31.0.101.2140**, currently **1366×768**; screen pixel/brightness/hinge condition not checked.
+- Wi-Fi Intel Wireless-AC 8265 **Up, 780 Mbps reported link speed**; Ethernet Realtek PCIe GbE **Disconnected**, so wired connection not tested. Wi-Fi link speed is not measured throughput.
+- `Get-PnpDevice -PresentOnly | Where Status -ne 'OK'` produced **no rows**. This supports **no currently enumerated PnP status errors**, not proof of fault-free operation or that historic/stale device events have been cleared.
+
+**Result:** Peripheral detection inventory captured successfully; **zero physical port tests, camera recordings, mic recordings, Bluetooth pairings or Ethernet-cable validations have been demonstrated by this upload.** Keep manual/functional checks open.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
@@ -119,7 +136,8 @@ The user subsequently supplied **complete** `gaming-samples.csv` and `report(1).
 | CPU temperature / thermal throttling in gaming | NOT TESTED |
 | NVMe SMART health, endurance and media-error summary | **REPORTED by HWiNFO** (98% health, 0 media errors, 549 unsafe shutdowns); extended error log not checked |
 | SSD controlled copy/hash workload | NOT TESTED |
-| Screen, keyboard, touchpad, hinges, mic, headphones and ports | NOT TESTED |
+| Peripheral PnP enumeration and driver status | **COMPLETED** — devices reported OK, no present-only status errors; not physical function |
+| Screen, keyboard, touchpad, hinges, mic, headphones and ports | PHYSICAL FUNCTION NOT TESTED |
 | Actual webcam, Bluetooth and Ethernet use | NOT TESTED |
 | 45–60 minute gaming stability and sensor logs | NOT TESTED |
 
