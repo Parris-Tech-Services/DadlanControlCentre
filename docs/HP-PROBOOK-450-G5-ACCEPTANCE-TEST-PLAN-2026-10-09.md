@@ -166,6 +166,11 @@ User replied **"yep its fine"** to request to test USB flash-drive detection and
 
 User opened Notepad as directed and replied **"yes they work fine"** to checking typing, arrow keys, Backspace, Enter and Shift, plus touchpad clicking, right-clicking and scrolling. **PASS (user-observed) for basic keyboard typing/navigation and touchpad clicks/scrolling.** This is a functional check beyond PnP enumeration. It does **not** prove every individual key, Fn combinations, all multi-touch gestures or long-term reliability has been comprehensively tested.
 
+
+## Screen and hinges physical visual check — 9 October 2026
+
+User was asked to check the screen for **dead pixels, lines, flickering and uneven brightness**, and gently open/close the lid to check **smooth hinge movement and ability to hold the screen in position**. User replied **"yes all looks good"**. **PASS: basic user-observed screen visual condition and hinge operation.** This is a qualitative check, not a controlled full-colour pixel test, quantified brightness/colour accuracy or long-term hinge durability assessment. Do not mark HDMI/external display tested.
+
 ## Acceptance record (not yet passed)
 
 | Test area | Status |
@@ -179,7 +184,8 @@ User opened Notepad as directed and replied **"yes they work fine"** to checking
 | Internal microphone live input meter | **PASS — user confirmed it responds while speaking**; recording quality untested |
 | USB flash drive / physical USB sockets | **PASS — user reports ports work**; ~4 GB Lexar USB drive enumerated OK; individual read/write throughput unverified |
 | Keyboard and touchpad basic functions | **PASS — user confirmed typing, navigation, clicks and scrolling work** |
-| Screen, hinges, headphone jack, HDMI and other ports | PHYSICAL FUNCTION NOT TESTED |
+| Screen and hinges basic visual/physical inspection | **PASS — user confirms both look and operate normally**; no quantitative pixel test |
+| Headphone jack, HDMI and other non-USB ports | PHYSICAL FUNCTION NOT TESTED |
 | Webcam browser live preview | **PASS — visible live image confirmed by user**; recording not tested |
 | Bluetooth receive-file transfer from Android | **PASS — user confirmed receiving a photo with fsquirt.exe**; other Bluetooth uses not tested |
 | Actual Ethernet cable/link | NOT TESTED |
