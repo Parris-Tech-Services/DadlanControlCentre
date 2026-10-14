@@ -28,6 +28,8 @@ The current operational snapshot is visible in the app at `/rollout` and documen
 - [Full DadLAN hardware inventory — 27 records (20 laptops + 7 desktop/AIO), reconciled 9 Oct 2026](docs/data/laptop-inventory-2026-08-03.csv)
 - [Inventory reconciliation, source evidence, uncertainty and known gaps — 9 Oct 2026](docs/DADLAN-INVENTORY-RECONCILIATION-2026-10-09.md)
 - [HP ProBook 450 G5 — 9 Oct repair and hardware confirmation](docs/HP-PROBOOK-450-G5-2026-10-09.md)
+- [Laptop #10 Hitachi disk preservation — Clonezilla session, 14 Oct 2026 (completion unverified)](docs/backup-records/2026-10-14-dadlan-laptop10-hitachi-to-usb21.md)
+- [USB #21 — 32 GB General UDisk backup destination and verification status](docs/usb-inventory/USB-21-2026-10-14.md)
 
 Highlights include the v2.1.15 server rollout, #03/#07 subnet repair, ForgeGrid manual-only policy, performance cleanup, LCX staging state, Laptop #10 x64 remediation path, legacy `kb.dadlan.au` HTTP 500 diagnosis, and the still-open Teeworlds visible-launch canary.
 
