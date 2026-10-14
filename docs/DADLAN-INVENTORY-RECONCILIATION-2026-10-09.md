@@ -43,3 +43,14 @@ The CSV has been reconciled **at the existing path** for backward compatibility.
 5. Cross-check with a current Action1/SMB fleet export and physically present devices before calling the inventory exhaustive.
 
 **Do not silently remove a row or fabricate device identifiers when updating the catalogue.**
+
+## Follow-up evidence — 14 October 2026
+
+Josh explicitly identified the **Hitachi HTS543212L9A300 nominal 120 GB HDD** as originating from **DadLAN Laptop #10** (historically listed here as Compaq 610). The disk's Windows 10 Home x86 hostname `DESKTOP-MMR0H5N` agrees with the [20 August 2026 DadLAN Laptop10 Samba transcript](DADLAN-SAMBA-VSCODE-NETWORK-CHAT-TRANSCRIPT-2026-08-20.md). The drive was temporarily fitted to a **different Lenovo ThinkCentre M710s** received for refurbishment; this does **not** change the identity of Laptop #10 or mean the Hitachi was supplied with the Lenovo.
+
+A Clonezilla **`savedisk`** image to **USB #21** was **started** on 14 October with `zstdmt`, directory `2026-10-14-12-img`. The last direct evidence shows copying in progress. **Do not record the disk as safely backed up until the run succeeds and image checking passes.**
+
+- [Primary preservation record](backup-records/2026-10-14-dadlan-laptop10-hitachi-to-usb21.md)
+- [USB #21 media record](usb-inventory/USB-21-2026-10-14.md)
+
+This is a **provenance/status correction to an existing row**, not a newly counted 28th hardware asset. All historical fleet counts above remain as dated.
